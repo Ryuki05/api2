@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Zdog クマ</title>
+    <script src="https://unpkg.com/zdog@1/dist/zdog.dist.min.js"></script>
+  </head>
+  <body>
+    <canvas id="canvas" width="240" height="240"></canvas>
+    <script>
+      // Illustrationを作成
+      let illo = new Zdog.Illustration({
+        element: "#canvas", // 描画するキャンバスのIDを指定
+        dragRotate: true, // マウスでドラッグして回転できるようにする
+      });
+
+      // クマの頭を作成
+      let head = new Zdog.Shape({
+        addTo: illo, // illo（イラスト）にこの図形を追加
+        stroke: 100, // 頭のサイズを設定
+        quarters: 2,
+        color: "gray", // 頭の色（茶色）
+      });
+
+    //   new Zdog.Ellipse({
+    //     addTo:head, // illo（イラスト）にこの図形を追加
+    //     stroke: 100, // 頭のサイズを設定
+    //     quarters: 2,
+    //     diameter: 80,
+    //     quarters: 2,
+    //     stroke: 20,
+    //     color: "#e4e4e4", // 頭の色（茶色）
+    //   });
+
+      // 左耳を追加
+      new Zdog.Shape({
+        addTo: head, // クマの頭に耳を追加
+        stroke: 40, // 耳のサイズを設定
+        color: "gray", // 耳の色（頭と同じ色）
+        translate: { x: -30, y: 40, z: 0 }, // 頭からの位置を調整
+      });
+
+      // 右耳を追加
+      new Zdog.Shape({
+        addTo: head, // クマの頭に耳を追加
+        stroke: 40, // 耳のサイズを設定
+        color: "gray", // 耳の色（頭と同じ色）
+        translate: { x: 30, y: 40, z: 0 }, // 頭からの位置を調整
+      });
+
+      // 鼻を追加
+      new Zdog.Ellipse({
+        addTo: head, // クマの頭に鼻を追加
+        diameter: 15, // 鼻のサイズを設定
+        stroke: 1, // 鼻の太さを設定
+        color: "#000", // 鼻の色（黒）
+        translate: {x:-8, y: 20, z: 40 }, // 頭からの位置を調整
+      });
+      
+      //右
+      new Zdog.Ellipse({
+        addTo: head, // クマの頭に鼻を追加
+        diameter: 15, // 鼻のサイズを設定
+        stroke: 1, // 鼻の太さを設定
+        color: "#000", // 鼻の色（黒）
+        translate: {x:8, y: 20, z: 40 }, // 頭からの位置を調整
+      });
+
+      //髭右
+      new Zdog.Shape({
+        addTo: head,
+        path: [
+            { x: 30 }, // start at 1st point
+            { x:  10 }, // line to 2nd point
+        ],
+        stroke: 3,
+        color: '#000',
+        translate: { x: 10, y: 15, z: 40 },
+        });
+        new Zdog.Shape({
+        addTo: head,
+        path: [
+            { x: 10 }, // start at 1st point
+            { x:  30 }, // line to 2nd point
+        ],
+        stroke: 3,
+        color: '#000',
+        translate: { x: 10, y: 20, z: 40 },
+        });
+        new Zdog.Shape({
+        addTo: head,
+        path: [
+            { x: 10 }, // start at 1st point
+            { x:  30 }, // line to 2nd point
+        ],
+        stroke: 3,
+        color: '#000',
+        translate: { x: 10, y: 25, z: 40 },
+        });
+
+        //髭左
+      new Zdog.Shape({
+        addTo: head,
+        path: [
+            { x: 10 }, // start at 1st point
+            { x:  30 }, // line to 2nd point
+        ],
+        stroke: 3,
+        color: '#000',
+        translate: { x: -50, y: 15, z: 40 },
+        });
+        new Zdog.Shape({
+        addTo: head,
+        path: [
+            { x: 10 }, // start at 1st point
+            { x:  30 }, // line to 2nd point
+        ],
+        stroke: 3,
+        color: '#000',
+        translate: { x: -50, y: 20, z: 40 },
+        });
+        new Zdog.Shape({
+        addTo: head,
+        path: [
+            { x: 10 }, // start at 1st point
+            { x:  30 }, // line to 2nd point
+        ],
+        stroke: 3,
+        color: '#000',
+        translate: { x: -50, y: 25, z: 40 },
+        });
+
+      // 目を追加
+      new Zdog.Shape({
+        addTo: head, // クマの頭に左目を追加
+        stroke: 10, // 目のサイズを設定
+        color: "#000", // 目の色（黒）
+        translate: { x: -15, y: 0, z: 40 }, // 頭からの位置を調整
+      });
+
+      new Zdog.Shape({
+        addTo: head, // クマの頭に右目を追加
+        stroke: 10, // 目のサイズを設定
+        color: "#000", // 目の色（黒）
+        translate: { x: 15, y: 0, z: 40 }, // 頭からの位置を調整
+      });
+
+      // 眉を追加
+      new Zdog.Shape({
+        addTo: head, // クマの頭に左目を追加
+        stroke: 10, // 目のサイズを設定
+        color: "#a7a7a7", // 目の色（黒）
+        translate: { x: -10, y: -12, z: 40 }, // 頭からの位置を調整
+      });
+
+      new Zdog.Shape({
+        addTo: head, // クマの頭に右目を追加
+        stroke: 10, // 目のサイズを設定
+        color: "#a7a7a7", // 目の色（黒）
+        translate: { x: 10, y: -12, z: 40 }, // 頭からの位置を調整
+      });
+
+      // アニメーション関数
+      function animate() {
+        // illo.rotate.y += 0.003; // Y軸を基準に回転を少しずつ追加
+        illo.updateRenderGraph(); // 描画を更新
+        requestAnimationFrame(animate); // 次のフレームでこの関数を再度呼び出し
+      }
+
+      // アニメーションを開始
+      animate(); // 初回のアニメーション関数の呼び出し
+    </script>
+  </body>
+</html>
