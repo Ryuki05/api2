@@ -1,0 +1,111 @@
+body {
+    font-family: 'Segoe UI', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffecd2, #fcb69f);
+    animation: bgFlow 10s ease infinite alternate;
+  }
+  
+  #chat-container {
+    width: 360px;
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    /* animation: fadeInUp 1s ease; ← これを削除！ */
+  }
+  
+  #messages {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    height: 260px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  #messages li {
+    max-width: 80%;
+    padding: 10px 15px;
+    background: linear-gradient(to right, #d9e4f5, #e8ddf3);
+    border-radius: 20px 20px 20px 0;
+    align-self: flex-start;
+    word-break: break-word;
+    color: #333;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.08);
+    animation: popIn 0.3s ease;
+  }
+  
+  
+  #form {
+    display: flex;
+    gap: 8px;
+  }
+  
+  #input {
+    flex: 1;
+    padding: 12px 14px;
+    border: 2px solid #ffb6b9;
+    border-radius: 30px;
+    outline: none;
+    background: #fff0f0;
+    color: #333;
+    transition: all 0.3s ease;
+  }
+  
+  #input:focus {
+    background: #fff;
+    border-color: #ff7e67;
+    box-shadow: 0 0 10px rgba(255, 126, 103, 0.4);
+    transform: scale(1.02);
+  }
+  
+  button {
+    padding: 12px 18px;
+    border: none;
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    color: white;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 10px rgba(255, 100, 150, 0.3);
+  }
+  
+  button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(255, 100, 150, 0.4);
+  }
+  
+  button:focus {
+    outline: none;
+  }
+  
+  @keyframes popIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  @keyframes bgFlow {
+    0% {
+      background-position: left top;
+    }
+    100% {
+      background-position: right bottom;
+    }
+  }
